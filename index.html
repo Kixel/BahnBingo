@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="bb.css">
     <title>BahnBingo</title>
 </head>
 <body>
@@ -12,10 +13,17 @@
         function generateBingo() {
 
         }
+
+        $(document).ready(function() {
+            $('#toggle-theme').click(function() {
+                $('body').toggleClass('dark-mode');
+                $('header, main, footer, nav a').toggleClass('dark-mode');
+            });
+        });
         // Your code goes here.
  
     </script>
-
+    <button id="toggle-theme">Toggle Theme</button>
     <h1>Bahn-Bingo</h1>
 
 </body>

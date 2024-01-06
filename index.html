@@ -7,11 +7,98 @@
 </head>
 <body>
     <script src="jquery-3.7.1.js"></script>
+    <script src="baseConverter.js"></script>
     <script src="sfc.js"></script>
     <script>
         var d = new Date();
         
-        const bingoItems = [
+        const bingoCommon = [
+            "test1",
+            "test2",
+            "test3",
+            "test4",
+            "test5",
+            "test6",
+            "test7",
+            "test8",
+            "test9",
+            "test10",
+            "test11",
+            "test12",
+            "test13",
+            "test14", 
+            "test15", 
+            "test16",
+            "test17",
+            "test18",
+            "test19",
+            "test20",
+            "test21",
+            "test22",
+            "test23",
+            "test24",
+            "test25",
+            "test26",
+            "test27",
+            "test28",
+            "test29",
+            "test30",
+            "test31",
+            "test32", 
+            "test33",
+            "test34",
+            "test35",
+            "test36",
+            "test37",
+            "test38",
+            "test39",
+            "test40"
+        ];
+
+        const bingoRare = [
+            "test1",
+            "test2",
+            "test3",
+            "test4",
+            "test5",
+            "test6",
+            "test7",
+            "test8",
+            "test9",
+            "test10",
+            "test11",
+            "test12",
+            "test13",
+            "test14", 
+            "test15", 
+            "test16",
+            "test17",
+            "test18",
+            "test19",
+            "test20",
+            "test21",
+            "test22",
+            "test23",
+            "test24",
+            "test25",
+            "test26",
+            "test27",
+            "test28",
+            "test29",
+            "test30",
+            "test31",
+            "test32", 
+            "test33",
+            "test34",
+            "test35",
+            "test36",
+            "test37",
+            "test38",
+            "test39",
+            "test40"
+        ];
+
+        const bingoUltra = [
             "test1",
             "test2",
             "test3",
@@ -55,10 +142,52 @@
         ];
 
         function getDateString() {
-            
+            url = new URL(window.location.href);
+            var tod = "";
+            if (url.searchParams.has('date')) {
+                tod = url.searchParams.get('date');
+            } else {
+                const d = new Date();
+                tod = [d.getFullYear(),
+                ((d.getMonth()+1)>9 ? '' : '0') + (d.getMonth()+1),
+                (d.getDate()>9 ? '' : '0') + d.getDate()
+               ].join('');
+            }
+            $("p#logfield").append("<span>"+tod+"</span><br />")
+            return tod;
         }
+
         function generateBingo() {
 
+        }
+
+        function initRandom(seed) {
+            hash = MurmurHash3(seed);
+            $('p#logfield').append(hash+"<br>");
+            t = sfc32(hash);
+            //init entropy
+            for(let i = 0; i < 20; i++) {
+                $('p#logfield').append(t()+"<br>");
+            }
+            $('p#logfield').append("<br>")
+            return t;
+        }
+
+        function resetField() {
+            $("div#bingofield").empty();
+            $("p#logfield").empty();
+        }
+
+        function mainlogic() {
+            resetField();
+            $('p#logfield').append(Date.now()+"<br>");
+            today = getDateString();
+            //today = "20240116";
+            rand = initRandom(today);
+            for(let i = 0; i < 10; i++) {
+                $('p#logfield').append(rand()+"<br>")
+            }
+            
         }
 
         $(document).ready(function() {
@@ -66,7 +195,11 @@
                 $('body').toggleClass('dark-mode');
                 $('header, main, footer, nav a').toggleClass('dark-mode');
             });
-
+            $("input#freifeld").change(function () {
+                mainlogic();
+            })
+            $('#toggle-theme').click();
+            mainlogic();
         });
         // Your code goes here.
  
@@ -78,5 +211,8 @@
         <label for="freifeld">Frei-Feld</label> 
     </div>
     <div id="bingofield" class="bingofield"></div>
+
+    
+    <p id="logfield"></p>
 </body>
 </html>

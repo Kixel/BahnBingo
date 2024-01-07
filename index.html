@@ -141,6 +141,8 @@
             "ultra40"
         ];
 
+        const bingoFree = "Freifeld!"
+
         const baseURL = "http://localhost:3000/"
         //const baseURL = "https://bahnbingo.kixel.eu/"
 
@@ -194,8 +196,20 @@
             return tod;
         }
 
-        function generateBingo() {
+        function generateBingo(cards, genfree) {
+            var bingoField = $("#bingofield");
+            if(genfree) {
+                cards.splice(12,0,bingoFree);
+            }
+            for (let i = 0; i < 25; i++) {
+                var checkboxId = "checkbox" + i;
 
+                var tile = $("<div class='bingo-tile'>");
+                tile.append("<input type='checkbox' id='" + checkboxId + "' />");
+                tile.append("<label for='" + checkboxId + "'>" + cards[i] + "</label>");
+
+                bingoField.append(tile);
+            }
         }
 
         function unittest() {
@@ -315,13 +329,17 @@
             today = getDateString();
             //today = "unittest";
             rand = initRandom(today);
-            let tilestofill = 25;
+            hasfreefield = false;
             if ($("#freifeld").is(":checked")) {
+                hasfreefield = true;
+            }
+            let tilestofill = 25;
+            if(hasfreefield) {
                 tilestofill--;
             }
             [c,r,u] = generateComposition(rand, tilestofill)
             cards = pickBingoCards(rand, c,r,u)
-            
+            generateBingo(cards, hasfreefield)
         }
 
         function copyToClipboard() {

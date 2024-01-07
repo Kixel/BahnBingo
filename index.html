@@ -9,6 +9,8 @@
     <script src="jquery-3.7.1.js"></script>
     <script src="baseConverter.js"></script>
     <script src="sfc.js"></script>
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script> 
         const bingoCommon = [
             "common1",
@@ -139,6 +141,9 @@
             "ultra40"
         ];
 
+        const baseURL = "http://localhost:3000/"
+        //const baseURL = "https://bahnbingo.kixel.eu/"
+
         function daysDiff(datepast) {
             //from: https://stackoverflow.com/questions/40789240/how-to-calculate-x-days-ago-in-javascript
             var today = new Date();
@@ -167,6 +172,7 @@
                 //ddiff = 0
                 if(ddiff != 0) {
                     $("div.oldwarning").removeClass("noshow");
+                    ddiff = Math.round(ddiff);
                     if (ddiff > 1) {
                         $("span#daysgoneby").text(ddiff+" Tagen");
                     } else {
@@ -301,7 +307,7 @@
         }
 
         function updateURL() {
-
+            $("#copylink").text(Date.now());
         }
 
         function mainlogic() {
@@ -314,11 +320,17 @@
                 tilestofill--;
             }
             [c,r,u] = generateComposition(rand, tilestofill)
-            //for(let i = 0; i < 10; i++) {
-            //    $('p#logfield').append(rand()+"<br>")
-            //}
             cards = pickBingoCards(rand, c,r,u)
             
+        }
+
+        function copyToClipboard() {
+            let linkval = $("#copylink").text()
+            navigator.clipboard.writeText(linkval);
+            $("p#copied").slideDown();
+            setTimeout(function() {
+                $("p#copied").slideUp();
+            }, 3000);
         }
 
         $(document).ready(function() {
@@ -329,18 +341,26 @@
             $("input#freifeld").change(function () {
                 resetField();
                 mainlogic();
-            })
+            });
+            $("#togglelog").click(function() {
+                $("#logfield").slideToggle();
+            });
+            $("#copylinkbutton").click(copyToClipboard);
             $('#toggle-theme').click();
             unitresult = unittest();
+            //unitresult = false
             if (unitresult) {
                 mainlogic();
                 updateURL();
+            } else {
+                $("div.testfail").removeClass("noshow");
             }
         });
         // Your code goes here.
- 
+
     </script>
     <button id="toggle-theme" class="themetoggle">Dunkel/Hell</button>
+    <div class="testfail noshow"><p>In diesem Browser sind die Tests des Pseudo-Zufallszahlen-Generators fehlgeschlagen. Dies bedeutet, dass geteilte Bingofelder nicht konsistent mit den Browsern anderer Nutzer sind! Benutze einen anderen Browser (bspw. <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>) und versuche es erneut!<br />Außerdem würde ich mich über einen <a href="https://github.com/Kixel/BahnBingo/issues">Report auf Github</a> mit deinen Browser-Infos freuen!</p></div>
     <div class="oldwarning">
         <h2>Altes Feld vom <span id="oldfielddate"></span>!</h2>
         <p>Du hast den Link für ein altes Feld von vor <span id="daysgoneby"></span> geladen! Wenn du ein aktuelles, neues Feld "spielen" möchtest, tippe/klicke auf dieses Banner!</p>
@@ -352,7 +372,28 @@
     </div>
     <div id="bingofield" class="bingofield"></div>
 
-    
-    <p id="logfield"></p>
+    <div id="sharelink">
+        <h2>Teile dein Leiden/Feld mit anderen:</h2>
+        <div id="copycontainer">
+            <!-- <input type="text" readonly id="copylink" value="https://bahnbingo.kixel.eu/"> -->
+            <span id="copylink">Link hier</span><a href="#" class="fakebutton" id="copylinkbutton">Kopieren</a>
+        </div>
+        <p id="copied">✅Link in die Zwischenablage kopiert!</p>
+    </div>
+
+    <hr>
+    <div id="bottominfo" class="bottominfo">
+        <p class="extrainfo">
+        <!-- <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="kixel" data-color="#FF5F5F" data-emoji=""  data-font="Poppins" data-text="Spendier nen Tee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script> -->
+        <a href='https://ko-fi.com/K3K5T2IQN' target='_blank'><img height='27' style='border:0px;height:27px;' src='https://storage.ko-fi.com/cdn/kofi5.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+        
+        <a class="github-button" href="https://github.com/Kixel" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-size="large" data-show-count="true" aria-label="Follow @Kixel on GitHub">Follow @Kixel</a>
+        <a class="github-button" href="https://github.com/sponsors/Kixel" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-heart" data-size="large" aria-label="Sponsor @Kixel on GitHub">Sponsor</a>
+        <a class="github-button" href="https://github.com/Kixel/BahnBingo/discussions" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-comment-discussion" data-size="large" aria-label="Discuss Kixel/BahnBingo on GitHub">Discuss</a>
+        <a class="github-button" href="https://github.com/Kixel/BahnBingo/issues" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-issue-opened" data-size="large" data-show-count="true" aria-label="Issue Kixel/BahnBingo on GitHub">Issue</a>
+        <a class="github-button" href="https://github.com/Kixel/BahnBingo" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star Kixel/BahnBingo on GitHub">Star</a>    
+        <br />©2024 Jan Kircher<br /><br /><span id="togglelog">▶ Toggle log</span></p>
+    </div>
+    <p id="logfield" style="display:none"></p>
 </body>
 </html>

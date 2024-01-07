@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Am Sans";
-    src: url('Am Sans Regular.otf');
+    src: url('./Am Sans Regular.otf');
     }
 
 
@@ -43,8 +43,12 @@ nav.dark-mode a {
 }
 
 div.bingofield {
-    width: 100%;
+    width: calc(100%-20px);
+    margin-left: 10px;
+    margin-right: 10px;
+    min-height: 50px;
     background-color: green;
+    max-height: 80%;
 }
 
 button.themetoggle {
@@ -56,7 +60,7 @@ button.themetoggle {
 
 h1 {
     text-align: center;
-    font-family: "Am Sans Regular", 'Comic Sans';   
+    
 }
 
 div#freifeld_box {
@@ -80,7 +84,12 @@ div#freifeld_box {
 }
 
 div.oldwarning {
-    width: 100%;
+    padding-top: 2px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: calc(100%-20px);
     text-align: center;
     background-color: rgb(129, 71, 16);
     border-style: double;
@@ -88,8 +97,157 @@ div.oldwarning {
     border-color: red;
     color:white;
     cursor:pointer;
+
+}
+
+div.oldwarning h2 {
+    margin-top: 6px;
+    margin-bottom: 2px;
+}
+
+input#freifeld {
+    width: 1.7em;
+    height: 1.7em;
+}
+div#freifeld_box label {
+    font-size: 1.7em;
 }
 
 div.noshow {
     display: none;
 }
+
+div.testfail {
+    background-color: red;
+    border-style: double;
+    border-radius: 10px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    color: white;   
+}
+
+div.testfail a:link {
+    color: lightblue;
+}
+
+div.testfail a:visited {
+    color: lightsalmon !important;
+}
+
+div.testfail a:hover {
+    background-color: yellow;
+}
+
+p#logfield {
+    width: calc(100%-20px);
+    overflow-x: hidden;
+    word-wrap: break-word;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 5px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    background-color:#222;
+    color:#f5f5f5;
+}
+
+div.bottominfo {
+    width: calc(100%-10px);
+}
+p.extrainfo {
+    margin: 0 auto;
+    text-align: center;
+}
+
+div.bmc-btn-container {
+    display: inline-block;
+    height: 28px;
+}
+
+a.bmc-btn {
+    height: 26px;
+}
+
+div#sharelink {
+    width:calc(100%-10px);
+    text-align: center;
+}
+div#sharelink h2 {
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+div#sharelink span#copylink {
+    width: 400px;
+    font-size: 1.2em;
+    height: 100%;
+    top: 0px;
+    bottom: 0px;
+    line-height: 28px;
+    padding-left: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-weight: bold;
+    margin-right: 0px;
+    border-right: none;
+    display: inline-block;
+    background-color: #f5f5f5;
+    color:#222;
+    text-align: left;
+}
+
+div#sharelink #copylinkbutton {
+    height: 100%;
+    width: 115px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: teal;
+    color:white;
+    font-weight: bold;
+    margin-left: 0px;
+    border-left: none;
+    font-size: 1.3em;
+    display: inline-block;
+    top: 100%;
+    bottom: 100%;
+}
+
+div#sharelink #copylinkbutton:hover {
+    background-color: turquoise;
+}
+
+div#copycontainer {
+    height: 1.8em;
+}
+
+div#sharelink p#copied {
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(50,50,50,0.85);
+    width: 490px;
+    left: 50%;
+    margin-left: -255px;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-top: 0px;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding-top: 3px;
+    color:#f5f5f5;
+    display: none;
+}
+
+.fakebutton {
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.fakebutton:link {
+    text-decoration: none;
+}
+

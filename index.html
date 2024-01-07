@@ -84,6 +84,7 @@
             "Wurdest&nbsp;nie kontrolliert",
             "Warten&nbsp;auf<br>Fahrgäste eines anderen&nbsp;Zugs",
             "WC&nbsp;stark verschmutzt",
+            "Starker Cannabis-Geruch",
             /*"rare27",
             "rare28",
             "rare29",
@@ -596,6 +597,9 @@
             $("#toggleInstructions").click(function() {
                 $("div#rules").slideToggle();
             });
+            $('#credits').click(function() {
+                $("#acks").slideToggle();
+            })
         });
 
         function jsfail() {
@@ -665,7 +669,8 @@ Mit dem Link unten (oder dem Teilen-Knopf) kannst du dein heutiges Feld, zusamme
         <a class="github-button" href="https://github.com/Kixel/BahnBingo" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star Kixel/BahnBingo on GitHub">Star</a>    
         <br />©2024 Jan Kircher
         <br />
-        <p id="credits">Benutzte Tools/Ressourcen:
+        <p id="credits">▶ Benutzte Tools/Ressourcen:</p>
+        <div id="acks">
             <ul>
                 <li>
                     sfc32 und MurmurHash3 von <a href="https://github.com/bryc/code/blob/master/jshash/PRNGs.md">https://github.com/bryc/code/blob/master/jshash/PRNGs.md</a>
@@ -686,9 +691,9 @@ Mit dem Link unten (oder dem Teilen-Knopf) kannst du dein heutiges Feld, zusamme
                     TextFill von <a href="http://jquery-textfill.github.io/">http://jquery-textfill.github.io/</a>
                 </li>
             </ul>
-        </p>
+        </div>
         
-        <span id="devstuff" class="noshow"><br /><br /><span id="togglelog">▶ Toggle log</span></span></p>
+        <span id="devstuff" class="noshow"><span id="togglelog">▶ Toggle log</span></span></p>
     </div>
     <p id="logfield" style="display:none"></p>
 </body>

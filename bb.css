@@ -287,40 +287,52 @@ a.bmc-btn {
 }
 
 div#sharelink {
-    width:calc(100%-10px);
+    width:100%;
     text-align: center;
     margin-bottom: 20px;
     margin-top: 25px;
+    
 }
 div#sharelink h2 {
     margin-top: 10px;
     margin-bottom: 2px;
 }
 
+div#copycontainer {
+    height: 2em;
+    width: 95vmin;
+    margin:0 auto;
+    padding-left: -47.5vmin;
+    position: relative;
+}
+
 div#sharelink #copylink {
     border-style:solid;
     border-width: 1px;
     border-color: grey;
-    
+    position: absolute;
     width: calc(95%-130px);
     font-size: 1.2em;
-    height: 100%;
     top: 0px;
+    left: 0px;
     bottom: 0px;
+    right: 6.5em;
     line-height: 28px;
     padding-left: 10px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     font-weight: bold;
     margin-right: 0px;
-    display: inline-block;
+    
     background-color: #F0F3F5 ;
     color:#222;
     text-align: left;
     border-right: none;
     word-wrap:normal;
     padding-right:10px;
-   
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .common {
@@ -339,9 +351,12 @@ div#sharelink #copylinkbutton {
     border-style:solid;
     border-width: 1px;
     border-color: grey;
-    
-    height: 100%;
-    width: 115px;
+    position:absolute;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    padding-top:3px;
+    width: 6.5em;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: #00A099;
@@ -351,17 +366,15 @@ div#sharelink #copylinkbutton {
     border-left: none !important;
     font-size: 1.3em;
     display: inline-block;
-    top: 100%;
-    bottom: 100%;
+    bottom: 0px;
+    
 }
 
 div#sharelink #copylinkbutton:hover {
     background-color: turquoise;
 }
 
-div#copycontainer {
-    height: 2em;
-}
+
 
 div#sharelink p#copied {
     position: absolute;
@@ -373,7 +386,7 @@ div#sharelink p#copied {
     padding: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    margin-top: 2px;
+    margin-top: 0px;
     font-size: 1.3em;
     font-weight: bold;
     padding-top: 3px;
@@ -497,4 +510,12 @@ div#alternativeshare a {
 
 div#alternativeshare a:hover {
     background-color: turquoise;
+}
+
+div#acks {
+    display: none;
+}
+
+p#credits {
+    cursor: pointer;
 }

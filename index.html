@@ -9,143 +9,157 @@
     <script src="jquery-3.7.1.js"></script>
     <script src="baseConverter.js"></script>
     <script src="sfc.js"></script>
-    <script>
-        var d = new Date();
-        
+    <script> 
         const bingoCommon = [
-            "test1",
-            "test2",
-            "test3",
-            "test4",
-            "test5",
-            "test6",
-            "test7",
-            "test8",
-            "test9",
-            "test10",
-            "test11",
-            "test12",
-            "test13",
-            "test14", 
-            "test15", 
-            "test16",
-            "test17",
-            "test18",
-            "test19",
-            "test20",
-            "test21",
-            "test22",
-            "test23",
-            "test24",
-            "test25",
-            "test26",
-            "test27",
-            "test28",
-            "test29",
-            "test30",
-            "test31",
-            "test32", 
-            "test33",
-            "test34",
-            "test35",
-            "test36",
-            "test37",
-            "test38",
-            "test39",
-            "test40"
+            "common1",
+            "common2",
+            "common3",
+            "common4",
+            "common5",
+            "common6",
+            "common7",
+            "common8",
+            "common9",
+            "common10",
+            "common11",
+            "common12",
+            "common13",
+            "common14", 
+            "common15", 
+            "common16",
+            "common17",
+            "common18",
+            "common19",
+            "common20",
+            "common21",
+            "common22",
+            "common23",
+            "common24",
+            "common25",
+            "common26",
+            "common27",
+            "common28",
+            "common29",
+            "common30",
+            "common31",
+            "common32", 
+            "common33",
+            "common34",
+            "common35",
+            "common36",
+            "common37",
+            "common38",
+            "common39",
+            "common40"
         ];
 
         const bingoRare = [
-            "test1",
-            "test2",
-            "test3",
-            "test4",
-            "test5",
-            "test6",
-            "test7",
-            "test8",
-            "test9",
-            "test10",
-            "test11",
-            "test12",
-            "test13",
-            "test14", 
-            "test15", 
-            "test16",
-            "test17",
-            "test18",
-            "test19",
-            "test20",
-            "test21",
-            "test22",
-            "test23",
-            "test24",
-            "test25",
-            "test26",
-            "test27",
-            "test28",
-            "test29",
-            "test30",
-            "test31",
-            "test32", 
-            "test33",
-            "test34",
-            "test35",
-            "test36",
-            "test37",
-            "test38",
-            "test39",
-            "test40"
+            "rare1",
+            "rare2",
+            "rare3",
+            "rare4",
+            "rare5",
+            "rare6",
+            "rare7",
+            "rare8",
+            "rare9",
+            "rare10",
+            "rare11",
+            "rare12",
+            "rare13",
+            "rare14", 
+            "rare15", 
+            "rare16",
+            "rare17",
+            "rare18",
+            "rare19",
+            "rare20",
+            "rare21",
+            "rare22",
+            "rare23",
+            "rare24",
+            "rare25",
+            "rare26",
+            "rare27",
+            "rare28",
+            "rare29",
+            "rare30",
+            "rare31",
+            "rare32", 
+            "rare33",
+            "rare34",
+            "rare35",
+            "rare36",
+            "rare37",
+            "rare38",
+            "rare39",
+            "rare40"
         ];
 
         const bingoUltra = [
-            "test1",
-            "test2",
-            "test3",
-            "test4",
-            "test5",
-            "test6",
-            "test7",
-            "test8",
-            "test9",
-            "test10",
-            "test11",
-            "test12",
-            "test13",
-            "test14", 
-            "test15", 
-            "test16",
-            "test17",
-            "test18",
-            "test19",
-            "test20",
-            "test21",
-            "test22",
-            "test23",
-            "test24",
-            "test25",
-            "test26",
-            "test27",
-            "test28",
-            "test29",
-            "test30",
-            "test31",
-            "test32", 
-            "test33",
-            "test34",
-            "test35",
-            "test36",
-            "test37",
-            "test38",
-            "test39",
-            "test40"
+            "ultra1",
+            "ultra2",
+            "ultra3",
+            "ultra4",
+            "ultra5",
+            "ultra6",
+            "ultra7",
+            "ultra8",
+            "ultra9",
+            "ultra10",
+            "ultra11",
+            "ultra12",
+            "ultra13",
+            "ultra14", 
+            "ultra15", 
+            "ultra16",
+            "ultra17",
+            "ultra18",
+            "ultra19",
+            "ultra20",
+            "ultra21",
+            "ultra22",
+            "ultra23",
+            "ultra24",
+            "ultra25",
+            "ultra26",
+            "ultra27",
+            "ultra28",
+            "ultra29",
+            "ultra30",
+            "ultra31",
+            "ultra32", 
+            "ultra33",
+            "ultra34",
+            "ultra35",
+            "ultra36",
+            "ultra37",
+            "ultra38",
+            "ultra39",
+            "ultra40"
         ];
+
+        function daysDiff(datepast) {
+            //from: https://stackoverflow.com/questions/40789240/how-to-calculate-x-days-ago-in-javascript
+            var today = new Date();
+            var createdOn = datepast
+            var msInDay = 24 * 60 * 60 * 1000;
+
+            createdOn.setHours(0,0,0,0);
+            today.setHours(0,0,0,0)
+
+            var diff = (+today - +createdOn)/msInDay
+            return diff;
+        }
 
         function getDateString() {
             url = new URL(window.location.href);
             var tod = "";
             if (url.searchParams.has('date')) {
                 tod = url.searchParams.get('date');
+                urldate = new Date(tod.substring(0, 4), tod.substring(4, 2)-1, tod.substring(6,2))
+
+
             } else {
                 const d = new Date();
                 tod = [d.getFullYear(),
@@ -153,7 +167,7 @@
                 (d.getDate()>9 ? '' : '0') + d.getDate()
                ].join('');
             }
-            $("p#logfield").append("<span>"+tod+"</span><br />")
+            $("p#logfield").append("timestamp "+tod+"<br />")
             return tod;
         }
 
@@ -161,16 +175,69 @@
 
         }
 
+        function unittest() {
+            const expectedvalues = [
+                '0.38875073101371527',
+                '2.3283064365386963e-10',
+                '0.4987565795890987',
+                '0.8574416316114366',
+                '0.5783706894144416',
+                '0.9141369871795177',
+                '0.013451215112581849',
+                '0.5733339686412364',
+                '0.385202846955508',
+                '0.8205508021637797',
+                '0.06436107819899917',
+                '0.4548447064589709',
+                '0.3369022379629314',
+                '0.4069122604560107',
+                '0.24627409293316305',
+                '0.05413260590285063',
+                '0.8886187972966582',
+                '0.9270960993599147',
+                '0.36051095905713737',
+                '0.7505063868593425'
+                ];
+            const expectedhash = "1669671676";
+            let newhash = MurmurHash3("unittest");
+            if (newhash == expectedhash) {
+                $('p#logfield').append("[✔] hash "+newhash+" expected: "+expectedhash+"<br>");
+            } else {
+                $('p#logfield').append("[❌] hash "+newhash+" expected: "+expectedhash+"<br>");
+                return false;
+            }
+            testrand = sfc32(newhash);
+            for(let i=0;i<expectedvalues.length;i++) {
+                let newval = testrand();
+                if (newval == expectedvalues[i]) {
+                    $('p#logfield').append("[✔] value "+newval+" expected: "+expectedvalues[i]+"<br>");
+                } else {
+                    $('p#logfield').append("[❌] hash "+newval+" expected: "+expectedvalues[i]+"<br>");
+                    return false;
+                }   
+            }
+            $('p#logfield').append("[✔] all tests successful!<br>");
+            return true;
+        }
+
         function initRandom(seed) {
             hash = MurmurHash3(seed);
-            $('p#logfield').append(hash+"<br>");
+            $('p#logfield').append("hash "+hash+"<br>");
             t = sfc32(hash);
             //init entropy
             for(let i = 0; i < 20; i++) {
                 $('p#logfield').append(t()+"<br>");
             }
-            $('p#logfield').append("<br>")
+            $('p#logfield').append("random init done <br><br>")
             return t;
+        }
+        
+        function generateComposition(r, total) {
+            common = Math.round(15 + r()*6);
+            rare = Math.round((total - common) * (0.5 + (r()*0.5)));
+            ultra = Math.round(total - rare - common);
+            $("p#logfield").append("common "+common+" rare "+rare+" ultra "+ultra+"<br>");
+            return [common, rare, ultra];
         }
 
         function resetField() {
@@ -178,15 +245,62 @@
             $("p#logfield").empty();
         }
 
-        function mainlogic() {
-            resetField();
-            $('p#logfield').append(Date.now()+"<br>");
-            today = getDateString();
-            //today = "20240116";
-            rand = initRandom(today);
-            for(let i = 0; i < 10; i++) {
-                $('p#logfield').append(rand()+"<br>")
+        function pickBingoCards(rand,c,r,u) {
+            //define picker function
+            function picker(rand,set,limit) {
+                picked = []
+                for(let i = 0; i < limit; i++) {
+                    ni = Math.floor(rand()*set.length);
+                    if (ni == set.length) {
+                        ni = 0;
+                    }
+                    picked.push(set[ni]);
+                    set.splice(ni, 1);
+                }
+                return picked;
             }
+            //pick cards into array
+            let bingocards = [];
+            //pick common cards
+            ocommon = [...bingoCommon];
+            orare = [...bingoRare];
+            oultra = [...bingoUltra];
+            bingocards = bingocards.concat(picker(rand, ocommon, c));
+            bingocards = bingocards.concat(picker(rand, orare, r));
+            bingocards = bingocards.concat(picker(rand, oultra, u));
+            $("p#logfield").append("picked cards ["+bingocards.length+"]:<br>"+bingocards+"<br>");     
+            //shuffle cards
+            let shuffled = [];
+            for(let i = 0; i < c+r+u; i++) {
+                ni = Math.floor(rand()*bingocards.length);
+                if (ni == bingocards.length) {
+                    ni = 0;
+                }
+                shuffled.push(bingocards[ni]);
+                bingocards.splice(ni, 1);
+            }
+            $("p#logfield").append("shuffled ["+shuffled.length+"]:<br>"+shuffled+"<br>");
+            return shuffled;     
+        }
+
+        function updateURL() {
+
+        }
+
+        function mainlogic() {
+            $('p#logfield').append("current time "+Date.now()+"<br>");
+            today = getDateString();
+            //today = "unittest";
+            rand = initRandom(today);
+            let tilestofill = 25;
+            if ($("#freifeld").is(":checked")) {
+                tilestofill--;
+            }
+            [c,r,u] = generateComposition(rand, tilestofill)
+            //for(let i = 0; i < 10; i++) {
+            //    $('p#logfield').append(rand()+"<br>")
+            //}
+            cards = pickBingoCards(rand, c,r,u)
             
         }
 
@@ -196,18 +310,27 @@
                 $('header, main, footer, nav a').toggleClass('dark-mode');
             });
             $("input#freifeld").change(function () {
+                resetField();
                 mainlogic();
             })
             $('#toggle-theme').click();
-            mainlogic();
+            unitresult = unittest();
+            if (unitresult) {
+                mainlogic();
+                updateURL();
+            }
         });
         // Your code goes here.
  
     </script>
     <button id="toggle-theme" class="themetoggle">Dunkel/Hell</button>
+    <div class="oldwarning noshow">
+        <h2>Altes Feld vom <span id="oldfielddate"></span>!</h2>
+        <p>Du hast den Link für ein altes Feld von vor <span id="daysgoneby"></span> geladen! Wenn du ein aktuelles, neues Feld "spielen" möchtest, tippe/klicke auf dieses Banner!</p>
+    </div>
     <h1>Bahn-Bingo</h1>
     <div id="freifeld_box">
-        <input type="checkbox" id="freifeld" name="freifeld">
+        <input type="checkbox" id="freifeld" name="freifeld" checked>
         <label for="freifeld">Frei-Feld</label> 
     </div>
     <div id="bingofield" class="bingofield"></div>

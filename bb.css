@@ -78,3 +78,18 @@ div#freifeld_box {
     max-width: 100%;
     margin: 0 auto;
 }
+
+div.oldwarning {
+    width: 100%;
+    text-align: center;
+    background-color: rgb(129, 71, 16);
+    border-style: double;
+    border-radius: 10px;
+    border-color: red;
+    color:white;
+    cursor:pointer;
+}
+
+div.noshow {
+    display: none;
+}

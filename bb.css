@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Am Sans";
-    src: url('./Am Sans/Am Sans Regular.otf');
+    src: url('./Am Sans/Am Sans Regular/Am Sans Regular.otf');
 }
 
 @font-face {
@@ -152,6 +152,7 @@ button.themetoggle {
     color: #EC0016 ;
     display: inline-block;
     font-weight: 900;
+    font-family: Calibri, 'Comic Sans' !important;
 }
 
 .logo {
@@ -165,7 +166,7 @@ button.themetoggle {
     margin-right: 10px;
     padding-right: -5px;
     display: inline-block;
-    font-family: "Am Sans", Calibri, 'Comic Sans' !important;
+    font-family: Calibri, 'Comic Sans' !important;
 }
 
 .logo p {

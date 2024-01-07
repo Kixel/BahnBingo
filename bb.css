@@ -1,8 +1,18 @@
 @font-face {
     font-family: "Am Sans";
     src: url('./Am Sans/Am Sans Regular.otf');
-    }
+}
 
+@font-face {
+    font-family: "Open Dyslexic";
+    src: url("./OpenDyslexic/OpenDyslexic3-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Open Dyslexic";
+    src: url("./OpenDyslexic/OpenDyslexic3-Bold.ttf");
+    font-weight: bold;
+}
 
 /* Light mode */
 body {
@@ -10,6 +20,11 @@ body {
     color: #333;
     font-family: "Am Sans", Calibri, 'Comic Sans';
 }
+
+body.dyslexia {
+    font-family: "Open Dyslexic" !important;
+}
+
 header, main, footer {
     background-color: #fff;
     padding: 1rem;
@@ -150,6 +165,7 @@ button.themetoggle {
     margin-right: 10px;
     padding-right: -5px;
     display: inline-block;
+    font-family: "Am Sans", Calibri, 'Comic Sans' !important;
 }
 
 .logo p {
@@ -391,6 +407,10 @@ button#toggle-theme.dark-mode {
     background-image: url("./day-mode.png")
 }
 
+.centertext {
+    text-align: center;
+}
+
 a {
     color: black;
 }
@@ -400,6 +420,80 @@ a.dark-mode {
 }
 
 p#credits {
-    text-align: center;
     word-wrap: break-word;
+}
+
+
+div#rules p {
+    text-align: center;
+    width: 100%;
+    font-size: large;
+}
+
+span.bingored {
+    color:#EC0016;
+}
+span#gutefahrt {
+    font-size: larger;
+    font-weight: bold;
+}
+
+div#dyslexia {
+    font-family: "Open Dyslexic" !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+input#dysl {
+    width: 1.7em;
+    height: 1.7em;
+}
+div#dyslexia label {
+    font-size: 1.5em;
+}
+
+div#rules {
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    background-color:#cdd2d8;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: none;
+}
+
+div#rules.dark-mode {
+    background-color: #222;
+}
+
+div#toggleInstructions p {
+    cursor: pointer;
+}
+
+div#alternativeshare a {
+    border-style:solid;
+    border-width: 1px;
+    border-color: grey;
+    
+    height: 100%;
+    width: 130x;
+    border-radius: 10px;
+    background-color: #00A099;
+    color:white;
+    font-weight: bold;
+    margin-left: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left: none !important;
+    font-size: 1.5em;
+    display: inline-block;
+    top: 100%;
+    bottom: 100%;
+}
+
+div#alternativeshare a:hover {
+    background-color: turquoise;
 }

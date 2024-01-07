@@ -152,16 +152,33 @@
             return diff;
         }
 
+        function wochentag(i) {
+            const weekday = ["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"];
+            return weekday[i];
+        }
+
         function getDateString() {
             url = new URL(window.location.href);
             var tod = "";
             if (url.searchParams.has('date')) {
                 tod = url.searchParams.get('date');
-                urldate = new Date(tod.substring(0, 4), tod.substring(4, 2)-1, tod.substring(6,2))
-
-
+                urldate = new Date(tod.substring(0, 4), tod.substring(4, 6)-1, tod.substring(6,8))
+                ddiff = daysDiff(urldate);
+                //ddiff = 0
+                if(ddiff != 0) {
+                    $("div.oldwarning").removeClass("noshow");
+                    if (ddiff > 1) {
+                        $("span#daysgoneby").text(ddiff+" Tagen");
+                    } else {
+                        $("span#daysgoneby").text(ddiff+" Tag");
+                    }
+                    $("span#oldfielddate").text(wochentag(urldate.getDay())+", "+(urldate.getDate()>9 ? '' : '0') + urldate.getDate()+"."+((urldate.getMonth()+1)>9 ? '' : '0') + (urldate.getMonth()+1)+"."+urldate.getFullYear())
+                } else {
+                    $("div.oldwarning").addClass("noshow");
+                }
             } else {
                 const d = new Date();
+                $("div.oldwarning").addClass("noshow");
                 tod = [d.getFullYear(),
                 ((d.getMonth()+1)>9 ? '' : '0') + (d.getMonth()+1),
                 (d.getDate()>9 ? '' : '0') + d.getDate()
@@ -324,7 +341,7 @@
  
     </script>
     <button id="toggle-theme" class="themetoggle">Dunkel/Hell</button>
-    <div class="oldwarning noshow">
+    <div class="oldwarning">
         <h2>Altes Feld vom <span id="oldfielddate"></span>!</h2>
         <p>Du hast den Link für ein altes Feld von vor <span id="daysgoneby"></span> geladen! Wenn du ein aktuelles, neues Feld "spielen" möchtest, tippe/klicke auf dieses Banner!</p>
     </div>

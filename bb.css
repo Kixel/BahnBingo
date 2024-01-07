@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Am Sans";
-    src: url('./Am Sans Regular.otf');
+    src: url('./Am Sans/Am Sans Regular.otf');
     }
 
 
@@ -42,51 +42,76 @@ nav.dark-mode a {
     color: #f5f5f5;
 }
 
+
+
 div.bingofield {
-    width: calc(100%-20px);
+    width: 95vmin;
     margin-left: 10px;
     margin-right: 10px;
     min-height: 50px;
-    background-color: green;
+    
     max-height: 80%;
 
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 2px;
+    gap: 0px;
     margin: 0 auto;
+}
+
+div.BINGO {
+    border-style: ridge;
+    /*border-color: #EC0016;*/
+    color: white;
+    /*font-weight: bold;*/
+    background-color: #ec0016;
 }
 
 .bingo-tile {
     
     border: 2px solid #333;
-    border-radius: 10px;
+    border-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    background-color: aqua;
+    background-color: #F0F3F5 ;
     aspect-ratio: 1;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;    
+    padding: 1px;
+
 
 }
 
 .bingo-tile input {
     display: none;
-  }
+}
 
-  .bingo-tile label {
+.bingo-tile label {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+    text-align: center;
+    
+}
 
-  .bingo-tile input:checked + label {
-    background-color: #4CAF50;
+.bingo-tile.dark-mode {
+    background-color: #444;
+}
+
+.bingo-tile input:checked + label {
+    background-color: #408335 ;
     color: #fff;
-  }
+}
 
+.bingo-tile.BINGO input:checked + label {
+    background-color: #ec0016;
+    color: #fff;
+}
 
 
 
@@ -96,15 +121,41 @@ div.bingofield {
 
 
 button.themetoggle {
-    position: absolute;
+    position: fixed;
     right: 10px;
     top: 10px;
 
 }
 
-h1 {
+.headerbox {
     text-align: center;
+}
+
+.h1 {
+    text-align: center;
+    font-size: 3em;
+    color: #EC0016 ;
+    display: inline-block;
+    font-weight: 900;
+}
+
+.logo {
+    border-style: solid;
+    text-align: center;
+    font-size: 3em;
+    color: #EC0016 ;
+    border-radius: 8px;
+    border-width: 7px;
+    font-weight: bolder;
+    margin-right: 10px;
+    padding-right: -5px;
+    display: inline-block;
+}
+
+.logo p {
     
+    margin-top: -0.3em;
+    margin-bottom: -0.22em;
 }
 
 div#freifeld_box {
@@ -119,13 +170,6 @@ div#freifeld_box {
 }
 
 
-#bingofield {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-    max-width: 100%;
-    margin: 0 auto;
-}
 
 div.oldwarning {
     padding-top: 2px;
@@ -135,13 +179,13 @@ div.oldwarning {
     margin-right: 10px;
     width: calc(100%-20px);
     text-align: center;
-    background-color: rgb(129, 71, 16);
+    background-color: #F39200 ;
     border-style: double;
     border-radius: 10px;
-    border-color: red;
+    border-color: #ec0016;
     color:white;
     cursor:pointer;
-
+    
 }
 
 div.oldwarning h2 {
@@ -157,11 +201,26 @@ div#freifeld_box label {
     font-size: 1.7em;
 }
 
-div.noshow {
+div#freifeld_box {
+    
+}
+
+.noshow {
     display: none;
 }
 
 div.testfail {
+    background-color: red;
+    border-style: double;
+    border-radius: 10px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    color: white;   
+}
+
+div.jsfail {
     background-color: red;
     border-style: double;
     border-radius: 10px;
@@ -217,14 +276,20 @@ a.bmc-btn {
 div#sharelink {
     width:calc(100%-10px);
     text-align: center;
+    margin-bottom: 20px;
+    margin-top: 25px;
 }
 div#sharelink h2 {
     margin-top: 10px;
     margin-bottom: 2px;
 }
 
-div#sharelink span#copylink {
-    width: 400px;
+div#sharelink #copylink {
+    border-style:solid;
+    border-width: 1px;
+    border-color: grey;
+    
+    width: calc(95%-130px);
     font-size: 1.2em;
     height: 100%;
     top: 0px;
@@ -235,23 +300,42 @@ div#sharelink span#copylink {
     border-bottom-left-radius: 10px;
     font-weight: bold;
     margin-right: 0px;
-    border-right: none;
     display: inline-block;
-    background-color: #f5f5f5;
+    background-color: #F0F3F5 ;
     color:#222;
     text-align: left;
+    border-right: none;
+    word-wrap:normal;
+    padding-right:10px;
+   
+}
+
+.common {
+    border-color: #AFB4BB ;
+}
+
+.rare {
+    border-color: #73AEF4 ;
+}
+
+.legend {
+    border-color: #FACA7F ;
 }
 
 div#sharelink #copylinkbutton {
+    border-style:solid;
+    border-width: 1px;
+    border-color: grey;
+    
     height: 100%;
     width: 115px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color: teal;
+    background-color: #00A099;
     color:white;
     font-weight: bold;
     margin-left: 0px;
-    border-left: none;
+    border-left: none !important;
     font-size: 1.3em;
     display: inline-block;
     top: 100%;
@@ -263,7 +347,7 @@ div#sharelink #copylinkbutton:hover {
 }
 
 div#copycontainer {
-    height: 1.8em;
+    height: 2em;
 }
 
 div#sharelink p#copied {
@@ -276,7 +360,7 @@ div#sharelink p#copied {
     padding: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    margin-top: 0px;
+    margin-top: 2px;
     font-size: 1.3em;
     font-weight: bold;
     padding-top: 3px;
@@ -285,6 +369,7 @@ div#sharelink p#copied {
 }
 
 .fakebutton {
+    
     cursor: pointer;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
@@ -295,3 +380,6 @@ div#sharelink p#copied {
     text-decoration: none;
 }
 
+button#toggle-theme.dark-mode {
+    
+}

@@ -9,80 +9,82 @@
     <script src="jquery-3.7.1.js"></script>
     <script src="baseConverter.js"></script>
     <script src="sfc.js"></script>
-    <!-- Place this tag in your head or just before your close body tag. -->
+    <script src="jquery.textfill.min.js"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script> 
         const bingoCommon = [
-            "common1",
-            "common2",
-            "common3",
-            "common4",
-            "common5",
-            "common6",
-            "common7",
-            "common8",
-            "common9",
-            "common10",
-            "common11",
-            "common12",
-            "common13",
-            "common14", 
-            "common15", 
-            "common16",
-            "common17",
-            "common18",
-            "common19",
-            "common20",
-            "common21",
-            "common22",
-            "common23",
-            "common24",
-            "common25",
-            "common26",
-            "common27",
-            "common28",
-            "common29",
-            "common30",
-            "common31",
-            "common32", 
-            "common33",
-            "common34",
-            "common35",
-            "common36",
-            "common37",
-            "common38",
+            "Verspätung<br>5+ Min.",
+            "Verspätung<br>10+ Min.",
+            "Verspätung<br>15+ Min.",
+            "Anschluss<br>verpasst",
+            "Verspätung<br>30+ Min.",
+            "Verspätung 45+ Min.",
+            "Gleiswechsel",
+            "Tür defekt",
+            "WC defekt",
+            "Verspätung 60+ Min.",
+            "Penetranter Alkohol-Gestank",
+            "Jemand im reservierten Sitz",
+            "Weichenstörung",
+            "Aufzug defekt", 
+            "Wagenreihung anders", 
+            "Wagen fehlt",
+            "Schreiende Kinder",
+            "Laute Fußballfans",
+            "&quot;Technische Störung&quot;",
+            "Klimaanlage defekt",
+            "Sitze unbequem",
+            "BahnApp&nbsp;lässt Karte nicht buchen",
+            "Viel zu warm im Zug",
+            "Viel zu kalt im Zug",
+            "Unter 5 Minuten Umsteigzeit",
+            "Über 90 Minuten Umsteigzeit",
+            "Gleiswechsel ohne Ansage",
+            "&quot;Signalstörung&quot;",
+            "Gleisabschnitt blockiert",
+            "Zug teilt sich",
+            "Jemand&nbsp;schaut<br>laut Videos",
+            "Jemand hört laut Musik", 
+            "Jemand telefoniert laut",
+            "Mit jemandem über die Bahn &quot;unterhalten&quot;",
+            "Verspätung durch<br>vorausfahrenden<br>Zug",
+            "Verspätung aus vorausgehender Fahrt",
+            "Durchsagen<br>unverständlich",
+            "Reservierung entfällt",
+            /*"common38",
             "common39",
-            "common40"
+            "common40"*/
         ];
 
         const bingoRare = [
-            "rare1",
-            "rare2",
-            "rare3",
-            "rare4",
-            "rare5",
-            "rare6",
-            "rare7",
-            "rare8",
-            "rare9",
-            "rare10",
-            "rare11",
-            "rare12",
-            "rare13",
-            "rare14", 
-            "rare15", 
-            "rare16",
-            "rare17",
-            "rare18",
-            "rare19",
-            "rare20",
-            "rare21",
-            "rare22",
-            "rare23",
-            "rare24",
-            "rare25",
-            "rare26",
-            "rare27",
+            "Zug verpasst durch Gleiswechsel",
+            "Zug fährt in die falsche Richtung",
+            "Zugführer:in fehlt",
+            "Nicht am selben Tag angekommen",
+            "Zug zu voll zum mitfahren",
+            "Keine Sitzplätze mehr frei",
+            "Wetterprobleme (Sturm, Schnee)",
+            "Zug fällt durch Streik aus",
+            "Unübersichtliche Baustelle am Bahnhof",
+            "Bordbistro geschlossen (ICE etc.)",
+            "WLAN existiert, aber funktioniert nicht",
+            "Schwarzfahrer:in wird erwischt",
+            "Verspätung 3h+",
+            "Startzug durch Warten an Bahnschranke verpasst", 
+            "Zug verfährt sich", 
+            "Anzeige am Bahnsteig defekt",
+            "Personen im Gleis",
+            "Keine Verpflegungs-<br>möglichkeit am Bahnhof",
+            "3+ selbes Geschäft (bspw. Yormas) an einem Bahnhof",
+            "Sehr neuer Zug",
+            "Zug&nbsp;teilt&nbsp;sich, du bist im falschen Teil",
+            "Um/Ausstieg verschlafen",
+            "Ersatzverkehr (bspw. Bus) genommen",
+            "Zug hält nicht am Bahnhof&nbsp;an",
+            "Wurdest nie kontrolliert",
+            "Warten&nbsp;auf<br>Fahrgäste eines anderen&nbsp;Zugs",
+            "WC stark verschmutzt",
+            /*"rare27",
             "rare28",
             "rare29",
             "rare30",
@@ -95,23 +97,23 @@
             "rare37",
             "rare38",
             "rare39",
-            "rare40"
+            "rare40"*/
         ];
 
         const bingoUltra = [
-            "ultra1",
-            "ultra2",
-            "ultra3",
-            "ultra4",
-            "ultra5",
-            "ultra6",
-            "ultra7",
-            "ultra8",
-            "ultra9",
-            "ultra10",
-            "ultra11",
-            "ultra12",
-            "ultra13",
+            "Verspätung 6h+",
+            "Verspätung 10h+",
+            "Koffer/Tasche vergessen",
+            "Bombenwarnung am Bahnhof",
+            "Medizinischer Notfall an Bord",
+            "Etwas fällt auf Oberleitung",
+            "Alle Züge pünktlich (±2 Min.)",
+            "Triebwagen brennt",
+            "Bahnstrecke durch Hochwasser blockiert",
+            "Gepäckstück wurde gestohlen",
+            "Übernachtung im Bahnhof",
+            "Übernachtung im Hotel nötig",
+            /*"ultra13",
             "ultra14", 
             "ultra15", 
             "ultra16",
@@ -138,12 +140,14 @@
             "ultra37",
             "ultra38",
             "ultra39",
-            "ultra40"
+            "ultra40"*/
         ];
+
+        const DEV = true;
 
         const bingoFree = "Freifeld!"
 
-        const baseURL = "http://localhost:3000/"
+        const baseURL = window.location.origin+"/";
         //const baseURL = "https://bahnbingo.kixel.eu/"
 
         function daysDiff(datepast) {
@@ -192,7 +196,7 @@
                 (d.getDate()>9 ? '' : '0') + d.getDate()
                ].join('');
             }
-            $("p#logfield").append("timestamp "+tod+"<br />")
+            addlog("timestamp "+tod+"<br />")
             return tod;
         }
 
@@ -204,11 +208,45 @@
             for (let i = 0; i < 25; i++) {
                 var checkboxId = "checkbox" + i;
 
-                var tile = $("<div class='bingo-tile'>");
+                var tile = $("<div class='bingo-tile' id='bingotile"+i+"'>");
                 tile.append("<input type='checkbox' id='" + checkboxId + "' />");
                 tile.append("<label for='" + checkboxId + "'>" + cards[i] + "</label>");
 
                 bingoField.append(tile);
+                $("#"+checkboxId).change(function() {
+                    updateBingo();
+                    updateURL();
+                });
+                if(bingoCommon.includes(cards[i])) {
+                    $("#bingotile"+i).addClass("common");
+                } else if(bingoRare.includes(cards[i])) {
+                    $("#bingotile"+i).addClass("rare");
+                } else if(bingoUltra.includes(cards[i])) {
+                    $("#bingotile"+i).addClass("legend");
+                }
+                if($("body").hasClass("dark-mode")) {
+                    $("#bingotile"+i).addClass("dark-mode");
+                }
+            }
+            setTimeout(function() {
+
+                for (let i=0; i < 25; i++) {
+                    $("#bingotile"+i).textfill({
+                        innerTag: "label",
+                        widthOnly: false, 
+                        minFontPixels: 20
+                    });
+                }
+            }, 100);
+        }
+
+        function addlog(data = "", append = false) {
+            if(DEV) {
+                if(append) {
+                    $('p#logfield').append(data);
+                } else {
+                    $('p#logfield').prepend(data);
+                }
             }
         }
 
@@ -238,34 +276,34 @@
             const expectedhash = "1669671676";
             let newhash = MurmurHash3("unittest");
             if (newhash == expectedhash) {
-                $('p#logfield').append("[✔] hash "+newhash+" expected: "+expectedhash+"<br>");
+                addlog("[✔] hash "+newhash+" expected: "+expectedhash+"<br>");
             } else {
-                $('p#logfield').append("[❌] hash "+newhash+" expected: "+expectedhash+"<br>");
+                addlog("[❌] hash "+newhash+" expected: "+expectedhash+"<br>");
                 return false;
             }
             testrand = sfc32(newhash);
             for(let i=0;i<expectedvalues.length;i++) {
                 let newval = testrand();
                 if (newval == expectedvalues[i]) {
-                    $('p#logfield').append("[✔] value "+newval+" expected: "+expectedvalues[i]+"<br>");
+                    addlog("[✔] value "+newval+" expected: "+expectedvalues[i]+"<br>");
                 } else {
-                    $('p#logfield').append("[❌] hash "+newval+" expected: "+expectedvalues[i]+"<br>");
+                    addlog("[❌] hash "+newval+" expected: "+expectedvalues[i]+"<br>");
                     return false;
                 }   
             }
-            $('p#logfield').append("[✔] all tests successful!<br>");
+            addlog("[✔] all tests successful!<br>");
             return true;
         }
 
         function initRandom(seed) {
             hash = MurmurHash3(seed);
-            $('p#logfield').append("hash "+hash+"<br>");
+            addlog("hash "+hash+"<br>");
             t = sfc32(hash);
             //init entropy
             for(let i = 0; i < 20; i++) {
-                $('p#logfield').append(t()+"<br>");
+                addlog(t()+"<br>");
             }
-            $('p#logfield').append("random init done <br><br>")
+            addlog("random init done <br><br>")
             return t;
         }
         
@@ -273,13 +311,13 @@
             common = Math.round(15 + r()*6);
             rare = Math.round((total - common) * (0.5 + (r()*0.5)));
             ultra = Math.round(total - rare - common);
-            $("p#logfield").append("common "+common+" rare "+rare+" ultra "+ultra+"<br>");
+            addlog("common "+common+" rare "+rare+" ultra "+ultra+"<br>");
             return [common, rare, ultra];
         }
 
         function resetField() {
             $("div#bingofield").empty();
-            $("p#logfield").empty();
+            //$("p#logfield").empty();
         }
 
         function pickBingoCards(rand,c,r,u) {
@@ -305,7 +343,7 @@
             bingocards = bingocards.concat(picker(rand, ocommon, c));
             bingocards = bingocards.concat(picker(rand, orare, r));
             bingocards = bingocards.concat(picker(rand, oultra, u));
-            $("p#logfield").append("picked cards ["+bingocards.length+"]:<br>"+bingocards+"<br>");     
+            addlog("picked cards ["+bingocards.length+"]:<br>"+bingocards+"<br>");     
             //shuffle cards
             let shuffled = [];
             for(let i = 0; i < c+r+u; i++) {
@@ -316,20 +354,143 @@
                 shuffled.push(bingocards[ni]);
                 bingocards.splice(ni, 1);
             }
-            $("p#logfield").append("shuffled ["+shuffled.length+"]:<br>"+shuffled+"<br>");
+            addlog("shuffled ["+shuffled.length+"]:<br>"+shuffled+"<br>");
             return shuffled;     
         }
 
+        function updateBingo() {
+            addlog("field update at "+Date.now()+"<br>");
+            for(let i = 0; i < 25; i++) {
+                $("#bingotile"+i).removeClass("BINGO");
+                /*$("#bingotile"+i).textfill({
+                    innerTag: "label",
+                    widthOnly: false, 
+                    minFontPixels: 20
+                });*/
+            }
+            let bingovariants = [
+                //horizontal
+                [0, 1, 2, 3, 4 ],
+                [5, 6, 7, 8, 9 ],
+                [10,11,12,13,14],
+                [15,16,17,18,19],
+                [20,21,22,23,24],
+                //vertical
+                [0,5,10,15,20],
+                [1,6,11,16,21],
+                [2,7,12,17,22],
+                [3,8,13,18,23],
+                [4,9,14,19,24],
+                //diagonal
+                [0,6,12,18,24],
+                [4,8,12,16,20]
+            ];
+            function testsubset(arr) {
+                addlog("Testing variant: "+arr+"<br>");
+                for(let i = 0; i < arr.length; i++) {
+                    if(document.getElementById("checkbox"+arr[i]).checked) {
+                        //nothing lol
+                        addlog("Box "+arr[i]+" is checked<br>");
+                    } else {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            for(let i = 0; i < bingovariants.length; i++) {
+                let tt = testsubset(bingovariants[i])
+                if(tt) {
+                    for(let j = 0; j < bingovariants[i].length; j++) {
+                        $("#bingotile"+bingovariants[i][j]).addClass("BINGO");
+                    }
+                    showBingo()
+                }
+            }
+        }
+
         function updateURL() {
-            $("#copylink").text(Date.now());
+            //$("#copylink").text(Date.now());
+            addlog("url update at "+Date.now()+"<br>");
+            let bingoinfo = getBingoInfo();
+            let hx = (ConvertBase.bin2hex(bingoinfo)).padStart(7, "0");
+            addlog("bingoinfo: "+bingoinfo+"<br>");
+            addlog("hex: "+hx+"<br>");
+            let ff = "0";
+            if ($("#freifeld").is(":checked")) {
+                ff = "1";
+            }
+            let u = baseURL + "?date="+getDateString()+"&f="+ff+"&d="+hx;
+            addlog("new url: "+u+"<br>");
+            $("#copylink").text(u);
+            return u;
+        }
+
+        function getBingoInfo() {
+            let info = "";
+            for(let i = 0; i < 25; i++) {
+                if($("#checkbox"+i).is(":checked")) {
+                    info = info.concat("1");
+                } else {
+                    info = info.concat("0");
+                }
+            }
+            return info;
+        }
+
+        function loadFromURL() {
+            let didload = false;
+            if(url.searchParams.has('f')) {
+                let ff = url.searchParams.get('f');
+                addlog("Found URL piece: F="+ff+"<br>")
+                if(ff == "1") {
+                    $("#freifeld").prop("checked", true);
+                } else {
+                    $("#freifeld").prop("checked", false);
+                }
+                didload = true;
+                updateBingo();
+                //updateURL();
+            }
+            if (url.searchParams.has('d')) {
+                let dd = url.searchParams.get('d');
+                addlog("Found URL piece: D="+dd+"<br>");
+                let binback = (ConvertBase.hex2bin(dd)).padStart(25, "0");
+                for(let i = 0; i < binback.length; i++) {
+                    let bs = binback[i];
+                    if(bs == "1") {
+                        document.getElementById("checkbox"+i).checked = true;
+                    } else {
+                        document.getElementById("checkbox"+i).checked = false;
+                    }
+                }
+                didload = true;
+                updateBingo();
+                //updateURL();
+            }
+            return didload;
+        }
+
+        function showBingo() {
+            addlog("BINGO! at "+Date.now()+"<br>");
         }
 
         function mainlogic() {
-            $('p#logfield').append("current time "+Date.now()+"<br>");
+            addlog("current time "+Date.now()+"<br>");
             today = getDateString();
             //today = "unittest";
             rand = initRandom(today);
+            
             hasfreefield = false;
+            if(url.searchParams.has('f')) {
+                let ff = url.searchParams.get('f');
+                if(ff=="1") {
+                    hasfreefield = true;
+                    document.getElementById("freifeld").checked = true;
+                } else {
+                    hasfreefield = false;
+                    document.getElementById("freifeld").checked = false;
+                }
+            }
             if ($("#freifeld").is(":checked")) {
                 hasfreefield = true;
             }
@@ -340,6 +501,12 @@
             [c,r,u] = generateComposition(rand, tilestofill)
             cards = pickBingoCards(rand, c,r,u)
             generateBingo(cards, hasfreefield)
+
+            if(!loadFromURL()) {
+                if(hasfreefield) {
+                    $("#checkbox12").prop("checked", true);
+                }
+            }
         }
 
         function copyToClipboard() {
@@ -352,19 +519,38 @@
         }
 
         $(document).ready(function() {
+            jsfail();
+            if(DEV) {
+                $("#devstuff").removeClass("noshow");
+            }
             $('#toggle-theme').click(function() {
                 $('body').toggleClass('dark-mode');
                 $('header, main, footer, nav a').toggleClass('dark-mode');
+                $('.bingo-tile').toggleClass('dark-mode');
             });
-            $("input#freifeld").change(function () {
+            $("input#freifeld").click(function () {
+                if(url.searchParams.has('f')) {
+                    addlog("new url required!<br>");
+                    let nurl = url;
+                    nurl.searchParams.delete("f");
+                    nurl.searchParams.delete("d");
+                    addlog("nurl: "+nurl+"<br>");
+                    url = nurl;
+                    history.pushState('BahnBingo', 'BahnBingo', nurl);
+                }
                 resetField();
                 mainlogic();
+                updateURL();
             });
             $("#togglelog").click(function() {
                 $("#logfield").slideToggle();
             });
+            
             $("#copylinkbutton").click(copyToClipboard);
-            $('#toggle-theme').click();
+            //$('#toggle-theme').click();
+            addlog(window.location.origin+"<br>");
+            addlog(window.location.host+"<br>");
+            addlog(window.location.pathname+"<br>");
             unitresult = unittest();
             //unitresult = false
             if (unitresult) {
@@ -373,20 +559,41 @@
             } else {
                 $("div.testfail").removeClass("noshow");
             }
+            if($("div.oldwarning").hasClass("noshow")) {
+                addlog("should scroll!<br>");
+                $([document.documentElement, document.body]).animate({ 
+                    scrollTop: $("#bingofield").offset().top
+                }, 500);
+            }
+            $(".oldwarning").click(function() {
+                window.location.href = baseURL;
+            });
+            $('#toggle-theme').click();
         });
-        // Your code goes here.
+
+        function jsfail() {
+            $(".jsfail").addClass("noshow");
+        }
 
     </script>
-    <button id="toggle-theme" class="themetoggle">Dunkel/Hell</button>
+    <button id="toggle-theme" class="themetoggle"></button>
+    <div class="jsfail"><p>Dieses Bingo-Spiel benötigt Javascript. Bitte aktiviere Javascript für diese Seite!</p></div>
     <div class="testfail noshow"><p>In diesem Browser sind die Tests des Pseudo-Zufallszahlen-Generators fehlgeschlagen. Dies bedeutet, dass geteilte Bingofelder nicht konsistent mit den Browsern anderer Nutzer sind! Benutze einen anderen Browser (bspw. <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>) und versuche es erneut!<br />Außerdem würde ich mich über einen <a href="https://github.com/Kixel/BahnBingo/issues">Report auf Github</a> mit deinen Browser-Infos freuen!</p></div>
     <div class="oldwarning">
         <h2>Altes Feld vom <span id="oldfielddate"></span>!</h2>
         <p>Du hast den Link für ein altes Feld von vor <span id="daysgoneby"></span> geladen! Wenn du ein aktuelles, neues Feld "spielen" möchtest, tippe/klicke auf dieses Banner!</p>
     </div>
-    <h1>Bahn-Bingo</h1>
-    <div id="freifeld_box">
-        <input type="checkbox" id="freifeld" name="freifeld" checked>
-        <label for="freifeld">Frei-Feld</label> 
+    <div class="headerbox">
+        <div class="logo"><p>BB</p></div><div class="h1">Bahn-Bingo</div>
+    </div>
+    <p><span id="flipoutthingy">▶</span> Anleitung und Einstellungen</p>
+    <div id="rules">
+        <h3></h3>
+        <p></p>
+        <div id="freifeld_box">
+            <input type="checkbox" id="freifeld" name="freifeld" checked>
+            <label for="freifeld">Frei-Feld</label> 
+        </div>
     </div>
     <div id="bingofield" class="bingofield"></div>
 
@@ -394,12 +601,12 @@
         <h2>Teile dein Leiden/Feld mit anderen:</h2>
         <div id="copycontainer">
             <!-- <input type="text" readonly id="copylink" value="https://bahnbingo.kixel.eu/"> -->
-            <span id="copylink">Link hier</span><a href="#" class="fakebutton" id="copylinkbutton">Kopieren</a>
+            <div id="copylink">Link hier</div><a href="javascript:void();" class="fakebutton" id="copylinkbutton">Kopieren</a>
         </div>
         <p id="copied">✅Link in die Zwischenablage kopiert!</p>
     </div>
 
-    <hr>
+    <br><hr>
     <div id="bottominfo" class="bottominfo">
         <p class="extrainfo">
         <!-- <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="kixel" data-color="#FF5F5F" data-emoji=""  data-font="Poppins" data-text="Spendier nen Tee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script> -->
@@ -410,7 +617,7 @@
         <a class="github-button" href="https://github.com/Kixel/BahnBingo/discussions" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-comment-discussion" data-size="large" aria-label="Discuss Kixel/BahnBingo on GitHub">Discuss</a>
         <a class="github-button" href="https://github.com/Kixel/BahnBingo/issues" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-issue-opened" data-size="large" data-show-count="true" aria-label="Issue Kixel/BahnBingo on GitHub">Issue</a>
         <a class="github-button" href="https://github.com/Kixel/BahnBingo" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star Kixel/BahnBingo on GitHub">Star</a>    
-        <br />©2024 Jan Kircher<br /><br /><span id="togglelog">▶ Toggle log</span></p>
+        <br />©2024 Jan Kircher<span id="devstuff" class="noshow"><br /><br /><span id="togglelog">▶ Toggle log</span></span></p>
     </div>
     <p id="logfield" style="display:none"></p>
 </body>

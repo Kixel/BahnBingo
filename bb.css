@@ -201,10 +201,6 @@ div#freifeld_box label {
     font-size: 1.7em;
 }
 
-div#freifeld_box {
-    
-}
-
 .noshow {
     display: none;
 }
@@ -380,6 +376,30 @@ div#sharelink p#copied {
     text-decoration: none;
 }
 
+button#toggle-theme {
+    width: 3em;
+    height: 3em;
+    background-color: transparent;
+    border: none;
+    background-image: url("./night-mode.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    cursor: pointer;
+}
 button#toggle-theme.dark-mode {
-    
+    background-image: url("./day-mode.png")
+}
+
+a {
+    color: black;
+}
+
+a.dark-mode {
+    color: #f5f5f5;
+}
+
+p#credits {
+    text-align: center;
+    word-wrap: break-word;
 }

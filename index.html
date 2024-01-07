@@ -527,6 +527,8 @@
                 $('body').toggleClass('dark-mode');
                 $('header, main, footer, nav a').toggleClass('dark-mode');
                 $('.bingo-tile').toggleClass('dark-mode');
+                $("button#toggle-theme").toggleClass("dark-mode");
+                $("a").toggleClass("dark-mode");
             });
             $("input#freifeld").click(function () {
                 if(url.searchParams.has('f')) {
@@ -576,7 +578,7 @@
         }
 
     </script>
-    <button id="toggle-theme" class="themetoggle"></button>
+    <button id="toggle-theme" class="themetoggle">&nbsp;</button>
     <div class="jsfail"><p>Dieses Bingo-Spiel benötigt Javascript. Bitte aktiviere Javascript für diese Seite!</p></div>
     <div class="testfail noshow"><p>In diesem Browser sind die Tests des Pseudo-Zufallszahlen-Generators fehlgeschlagen. Dies bedeutet, dass geteilte Bingofelder nicht konsistent mit den Browsern anderer Nutzer sind! Benutze einen anderen Browser (bspw. <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>) und versuche es erneut!<br />Außerdem würde ich mich über einen <a href="https://github.com/Kixel/BahnBingo/issues">Report auf Github</a> mit deinen Browser-Infos freuen!</p></div>
     <div class="oldwarning">
@@ -617,7 +619,29 @@
         <a class="github-button" href="https://github.com/Kixel/BahnBingo/discussions" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-comment-discussion" data-size="large" aria-label="Discuss Kixel/BahnBingo on GitHub">Discuss</a>
         <a class="github-button" href="https://github.com/Kixel/BahnBingo/issues" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-issue-opened" data-size="large" data-show-count="true" aria-label="Issue Kixel/BahnBingo on GitHub">Issue</a>
         <a class="github-button" href="https://github.com/Kixel/BahnBingo" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star Kixel/BahnBingo on GitHub">Star</a>    
-        <br />©2024 Jan Kircher<span id="devstuff" class="noshow"><br /><br /><span id="togglelog">▶ Toggle log</span></span></p>
+        <br />©2024 Jan Kircher
+        <br />
+        <p id="credits">Benutzte Tools/Ressourcen:
+            <ul>
+                <li>
+                    sfc32 und MurmurHash3 von <a href="https://github.com/bryc/code/blob/master/jshash/PRNGs.md">https://github.com/bryc/code/blob/master/jshash/PRNGs.md</a>
+                </li>
+                <li>
+                    jQuery 3.7.1 von <a href="https://jquery.com/">https://jquery.com/</a>
+                </li>
+                <li>
+                    beaseConverter.js von <a href="https://gist.github.com/faisalman/4213592">https://gist.github.com/faisalman/4213592</a>
+                </li>
+                <li>
+                    Light mode und Dark mode icons von <a href="https://www.flaticon.com/free-icons/dark-mode" title="dark mode icons">Dark mode icons created by Freepik - Flaticon</a>
+                </li>
+                <li>
+                    TextFill von <a href="http://jquery-textfill.github.io/">http://jquery-textfill.github.io/</a>
+                </li>
+            </ul>
+        </p>
+        
+        <span id="devstuff" class="noshow"><br /><br /><span id="togglelog">▶ Toggle log</span></span></p>
     </div>
     <p id="logfield" style="display:none"></p>
 </body>

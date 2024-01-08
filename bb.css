@@ -164,7 +164,7 @@ button.themetoggle {
     border-width: 7px;
     font-weight: bolder;
     margin-right: 10px;
-    padding-right: -5px;
+    padding-right: -2px;
     display: inline-block;
     font-family: Calibri, 'Comic Sans' !important;
 }
@@ -219,7 +219,7 @@ div#freifeld_box label {
 }
 
 .noshow {
-    display: none;
+    display: none !important;
 }
 
 div.testfail {
@@ -519,3 +519,149 @@ div#acks {
 p#credits {
     cursor: pointer;
 }
+
+div#itsbingo {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    
+    z-index: 5;
+    pointer-events: none;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#itsbingo_text {
+    
+    position:fixed;
+
+    font-family: Calibri !important;
+    font-size: 32vmin;
+    color: #EC0016;
+    font-weight: bolder;
+    border-color: #EC0016;
+    border-style: solid;
+    border-width:4vmin;
+    padding-left: 1vmin;
+    border-radius: 5vmin;
+    padding-right: 1vmin;
+    background-color: rgba(255,255,255,0.7);
+    box-shadow: 0 0 50px #fff;
+}
+
+div#itsbingo_text p {
+    margin-top: -7vmin;
+    margin-bottom: -6vmin;
+}
+
+@-webkit-keyframes spin {  
+    from {  
+        -webkit-transform: rotate(0deg); 
+        opacity: 0; 
+        scale: 0%;
+    }  
+    25% {
+        opacity: 0.3 ;
+    }
+    90% {
+        -webkit-transform: rotate(3650deg);  
+        scale: 150%;
+        opacity: 0.9
+
+    }
+    94% {
+        -webkit-transform: rotate(3570deg);
+        scale: 140%; 
+    }
+    to {  
+        -webkit-transform: rotate(3600deg);
+        opacity: 1;
+        size: 100%;
+    } 
+}
+
+@keyframes spin {  
+    from {  
+        transform: rotate(0deg); 
+        opacity: 0; 
+        scale: 0%;
+    }  
+    75% {
+        opacity: 0.3;
+    }
+    90% {
+        transform: rotate(3620deg);  
+        scale: 150%;
+        opacity: 0.9
+
+    }
+    94% {
+        transform: rotate(3595deg);
+        scale: 140%; 
+    }
+    to {  
+        transform: rotate(3600deg);
+        opacity: 1;
+        size: 100%;
+        } 
+}
+
+@-webkit-keyframes goodbye {  
+    from {  
+        
+        opacity: 1; 
+        scale: 100%;
+    }  
+    15% {
+        scale: 120%;
+    }
+    
+    to {  
+        
+        opacity: 0;
+        scale: 5%;
+    } 
+}
+
+@keyframes goodbye {  
+    from {  
+        
+        opacity: 1; 
+        scale: 100%;
+    }  
+    15% {
+        scale: 120%;
+    }
+    
+    to {  
+        
+        opacity: 0;
+        scale: 5%;
+    } 
+}
+
+.wheel {
+    -webkit-animation-name: spin;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function:ease-in-out;
+    -webkit-animation-duration: 2.5s;
+    animation-duration: 2.5s;
+    animation-name: spin;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
+.fuckoff {
+    -webkit-animation-name: goodbye;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function:linear;
+    -webkit-animation-duration: 1.0s;
+    animation-duration: 1.0s;
+    animation-name: goodbye;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+

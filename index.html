@@ -42,7 +42,7 @@
             "Gleiswechsel ohne Ansage",
             "&quot;Signalstörung&quot;",
             "Gleisabschnitt blockiert",
-            "Zug teilt sich",
+            "Zug&nbsp;teilt sich",
             "Jemand&nbsp;schaut<br>laut&nbsp;Videos",
             "Jemand&nbsp;hört laut&nbsp;Musik", 
             "Jemand telefoniert laut",
@@ -144,7 +144,9 @@
             "ultra40"*/
         ];
 
-        const DEV = true;
+        const DEV = false;
+
+        let knownbingos = [];
 
         const bingoFree = "Freifeld!"
 
@@ -405,7 +407,16 @@
                     for(let j = 0; j < bingovariants[i].length; j++) {
                         $("#bingotile"+bingovariants[i][j]).addClass("BINGO");
                     }
-                    showBingo()
+                    const ind = knownbingos.indexOf(i);
+                    if(ind < 0) {
+                        knownbingos.push(i);
+                        showBingo()
+                    }
+                } else {
+                    const ind = knownbingos.indexOf(i);
+                    if(ind > -1) {
+                        knownbingos.splice(ind,1);
+                    }
                 }
             }
         }
@@ -474,6 +485,16 @@
 
         function showBingo() {
             addlog("BINGO! at "+Date.now()+"<br>");
+            $("#itsbingo").removeClass("noshow");
+            $("#itsbingo_text").addClass("wheel");
+            setTimeout(() => {
+                $("#itsbingo_text").removeClass("wheel");
+                $("#itsbingo_text").addClass("fuckoff");
+                setTimeout(() => {
+                    $("#itsbingo").addClass("noshow");
+                    $("#itsbingo_text").removeClass("fuckoff");
+                }, 980);
+            }, 7500);
         }
 
         function mainlogic() {
@@ -519,8 +540,6 @@
                 $("p#copied").slideUp();
             }, 3000);
         }
-
-        
 
         $(document).ready(function() {
             jsfail();
@@ -596,10 +615,16 @@
             $('#toggle-theme').click();
             $("#toggleInstructions").click(function() {
                 $("div#rules").slideToggle();
+                if($("#flipoutthingy").text() == "▶") {
+                    $("#flipoutthingy").text("▼");
+                } else {
+                    $("#flipoutthingy").text("▶");
+                }
             });
             $('#credits').click(function() {
                 $("#acks").slideToggle();
-            })
+            });
+            //showBingo();
         });
 
         function jsfail() {
@@ -607,6 +632,11 @@
         }
 
     </script>
+    <div id="itsbingo" class="noshow">
+        <div id="itsbingo_text">
+            <p>BINGO</p>
+        </div>
+    </div>
     <button id="toggle-theme" class="themetoggle">&nbsp;</button>
     <div class="jsfail"><p>Dieses Bingo-Spiel benötigt Javascript. Bitte aktiviere Javascript für diese Seite!</p></div>
     <div class="testfail noshow"><p>In diesem Browser sind die Tests des Pseudo-Zufallszahlen-Generators fehlgeschlagen. Dies bedeutet, dass geteilte Bingofelder nicht konsistent mit den Browsern anderer Nutzer sind! Benutze einen anderen Browser (bspw. <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>) und versuche es erneut!<br />Außerdem würde ich mich über einen <a href="https://github.com/Kixel/BahnBingo/issues">Report auf Github</a> mit deinen Browser-Infos freuen!</p></div>
@@ -668,7 +698,7 @@ Mit dem Link unten (oder dem Teilen-Knopf) kannst du dein heutiges Feld, zusamme
         <a class="github-button" href="https://github.com/Kixel/BahnBingo/issues" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-issue-opened" data-size="large" data-show-count="true" aria-label="Issue Kixel/BahnBingo on GitHub">Issue</a>
         <a class="github-button" href="https://github.com/Kixel/BahnBingo" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star Kixel/BahnBingo on GitHub">Star</a>    
         <br />©2024 Jan Kircher
-        <br />
+        <br />Diese Webseite ist als Satire zu verstehen. Farben/Designs sind vom Deutsche Bahn-Design inspiriert. Don't hate me, Deutsche Bahn.
         <p id="credits">▶ Benutzte Tools/Ressourcen:</p>
         <div id="acks">
             <ul>

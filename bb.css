@@ -370,6 +370,10 @@ div#sharelink #copylinkbutton {
     
 }
 
+body.dyslexia div#sharelink #copylinkbutton {
+    font-family: Calibri;
+}
+
 div#sharelink #copylinkbutton:hover {
     background-color: turquoise;
 }
@@ -442,6 +446,7 @@ div#rules p {
     text-align: center;
     width: 100%;
     font-size: large;
+    line-height: 125%;
 }
 
 span.bingored {
